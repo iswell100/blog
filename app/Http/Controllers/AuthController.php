@@ -7,7 +7,7 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function signUnp(Request $request)
+    public function signUp(Request $request)
     {
         $user = User::create([
             'name' => $request['name'],
