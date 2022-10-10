@@ -15,10 +15,12 @@ trait ErrorResponseJson
                     'status' => 'error',
                     'message' => $validator->errors(),
                 ],
-                'dadta' => [],
+                'data' => [],
             ], 422)
         );
     }
+
+    
 }
 
 ?>
