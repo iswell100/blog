@@ -108,5 +108,24 @@ class AuthController extends Controller
             'data' => [],
         ]);
     }
+
+    public function refresh()
+    {
+        $user = auth()->user();
+        $token = auth()->fromUser($user);
+
+        return response()->json([
+            'meta' => [
+                'code' => 200,
+                'status' => 'success',
+                'message' => 'Token refreshed successfully'
+            ],
+            'data' => [
+                'name' => $user->name,
+                'email' => $user->email,
+                'picture' => $user->picture
+            ],
+        ]); 
+    }
     
 }
