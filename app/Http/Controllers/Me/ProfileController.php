@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Me;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -23,5 +24,12 @@ class ProfileController extends Controller
                 'picture' => $user->picture
             ]
         ]); 
+    }
+
+    public function update(Request $request)
+    {
+        $user = User::find(auth()->id());
+
+        $update = $user->update($request);
     }
 }
